@@ -1,38 +1,45 @@
 package URI::imaps;
-# $Id: imaps.pm,v 1.1 2004/08/07 19:21:51 cwest Exp $
-use strict;
+# ABSTRACT: support imaps URI
 
-use vars qw[$VERSION];
-$VERSION = sprintf "%d.%02d", split m/\./, (qw$Revision: 1.1 $)[1];
-
-use base qw[URI::_server];
+require URI::imap;
+@ISA=qw(URI::imap);
 
 sub default_port { 993 }
 
+sub secure { 1 }
+
 1;
 
+
 __END__
+=pod
 
 =head1 NAME
 
-URI::imaps - Support IMAPS URI
+URI::imaps - support imaps URI
+
+=head1 VERSION
+
+version 1.00
 
 =head1 DESCRIPTION
 
-Support IMAPS schemas with L<URI|URI>.
+Support IMAPS schemas with L<URI>.
 
 =head1 SEE ALSO
 
-L<URI>.
+L<URI::imap>
 
 =head1 AUTHOR
 
-Casey West, <F<casey@geeknest.com>>.
+Alex Muntada <alexm@cpan.org>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
-  Copyright (c) 2004 Casey West.  All rights reserved.
-  This module is free software; you can redistribute it and/or modify it
-  under the same terms as Perl itself.
+This software is copyright (c) 2011 by Alex Muntada.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+

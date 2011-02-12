@@ -1,11 +1,54 @@
-use ExtUtils::MakeMaker;
 
-WriteMakefile (
-               AUTHOR        => 'Casey West <casey@geeknest.com>',
-               ABSTRACT      => "Support IMAPS URI",
-               NAME          => 'URI::imaps',
-               PREREQ_PM     => {
-                                 'URI' => '',
-                                },
-               VERSION_FROM  => 'lib/URI/imaps.pm',
-              );
+use strict;
+use warnings;
+
+
+
+use ExtUtils::MakeMaker 6.31;
+
+
+
+my %WriteMakefileArgs = (
+  'ABSTRACT' => 'support imaps URI',
+  'AUTHOR' => 'Alex Muntada <alexm@cpan.org>',
+  'BUILD_REQUIRES' => {
+    'Test::More' => '0',
+    'URI' => '0'
+  },
+  'CONFIGURE_REQUIRES' => {
+    'ExtUtils::MakeMaker' => '6.31'
+  },
+  'DISTNAME' => 'URI-imaps',
+  'EXE_FILES' => [],
+  'LICENSE' => 'perl',
+  'NAME' => 'URI::imaps',
+  'PREREQ_PM' => {
+    'URI::imap' => '0'
+  },
+  'VERSION' => '1.00',
+  'test' => {
+    'TESTS' => 't/*.t'
+  }
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
+
