@@ -1,19 +1,22 @@
----
-abstract: 'support imaps URI'
+--- #YAML:1.0
+name:               URI-imaps
+version:            1.02
+abstract:           Support IMAPS URI
 author:
-  - 'Alex Muntada <alexm@cpan.org>'
-build_requires:
-  Test::More: 0
-  URI: 0
+    - Casey West <casey@geeknest.com>
+license:            unknown
+distribution_type:  module
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
-dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110420'
-license: perl
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
-name: URI-imaps
+    ExtUtils::MakeMaker:  0
+build_requires:
+    ExtUtils::MakeMaker:  0
 requires:
-  URI::imap: 0
-version: 1.00
+    URI:  
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.56
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4

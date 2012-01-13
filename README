@@ -1,13 +1,17 @@
+NAME
+    URI::imaps - Support IMAPS URI
 
+DESCRIPTION
+    Support IMAPS schemas with URI.
 
-This archive contains the distribution URI-imaps,
-version 1.00:
+SEE ALSO
+    URI.
 
-  support imaps URI
+AUTHOR
+    Casey West, <casey@geeknest.com>.
 
-This software is copyright (c) 2011 by Alex Muntada.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
+COPYRIGHT
+      Copyright (c) 2004 Casey West.  All rights reserved.
+      This module is free software; you can redistribute it and/or modify it
+      under the same terms as Perl itself.
 
